@@ -105,7 +105,7 @@ export default async function handler(req, res) {
     const FACT = await getFactsFromFirestore();
 
     const response = await openai.post("/chat/completions", {
-      model: "gpt-4",
+      model: "gpt-3.5-turbo",
       messages: [
         { role: "system", content: `You are a language model assistant that can ONLY use the following facts to answer questions. You cannot use any information not provided in these facts:\n\n${FACT.join("\n")}` },
         { role: "user", content: question },
